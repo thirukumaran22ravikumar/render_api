@@ -37,6 +37,10 @@ class Api::V1::BooksController < ApplicationController
   def destroy
     @book.destroy!
   end
+  def delete 
+    data = Book.where(id: params[:id]).first
+    data.destroy
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
