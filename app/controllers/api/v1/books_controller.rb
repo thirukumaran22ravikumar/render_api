@@ -37,9 +37,11 @@ class Api::V1::BooksController < ApplicationController
   def destroy
     @book.destroy!
   end
-  def delete 
-    data = Book.where(id: params[:id]).first
+  def delete
+    data = User.find_by(id: params[:id]) # Use find_by to find the user
+    puts data.inspect
     data.destroy
+
   end
 
   private
